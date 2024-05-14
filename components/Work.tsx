@@ -68,18 +68,17 @@ const Work = ({ work }: WorkProps) => {
           </button>
         </div>
 
-        {Array.isArray(work[activeIndex].attributes.image.data) &&
-          work[activeIndex].attributes.image.data.length > 0 && (
-            <Image
-              key={work[activeIndex].attributes.image.data[0].id}
-              src={`${BASE_API}${work[activeIndex].attributes.image.data[0].attributes.url}`}
-              alt="workimage"
-              width={600}
-              height={440}
-              className="lg:min-h-[440px] lg:min-w-[600px] lg:max-h-[400px] lg:max-w-[600px] h-[260px] w-screen object-fill"
-              objectFit="cover"
-            />
-          )}
+        {Array.isArray(work[activeIndex].attributes.image.data) && (
+          <Image
+            key={work[activeIndex].attributes.image.data[0].id}
+            src={`${BASE_API}${work[activeIndex].attributes.image.data[0].attributes.url}`}
+            alt="workimage"
+            width={600}
+            height={440}
+            className="lg:min-h-[440px] lg:min-w-[600px] lg:max-h-[400px] lg:max-w-[600px] h-[260px] w-screen object-fill"
+            objectFit="cover"
+          />
+        )}
       </div>
     </div>
   );
