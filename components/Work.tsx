@@ -5,6 +5,8 @@ import Image from "next/image";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { WorksDataProps } from "@/types";
 import ENDPOINT, { BASE_API } from "@/constant/endpoint";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 
 interface WorkProps {
   work: WorksDataProps[];
@@ -48,7 +50,7 @@ const Work = ({ work }: WorkProps) => {
         </button>
       </div>
       <div className="flex flex-col">
-        <div className="flex self-end gap-5 my-5">
+        <div className="flex gap-5 my-5 self-end">
           <button
             className={`featured__slider_btn ${
               isFirstIndex ? "blur-[2px] cursor-not-allowed" : ""
@@ -68,17 +70,20 @@ const Work = ({ work }: WorkProps) => {
           </button>
         </div>
 
-        {Array.isArray(work[activeIndex].attributes.image.data) && (
-          <Image
-            key={work[activeIndex].attributes.image.data[0].id}
-            src={`${BASE_API}${work[activeIndex].attributes.image.data[0].attributes.url}`}
-            alt="workimage"
-            width={600}
-            height={440}
-            className="lg:min-h-[440px] lg:min-w-[600px] lg:max-h-[400px] lg:max-w-[600px] h-[260px] w-screen object-fill"
-            objectFit="cover"
-          />
-        )}
+        <div className="relative h-[440px] w-[600px] lg:min-h-[440px] lg:min-w-[600px] lg:max-h-[440px] lg:max-w-[600px]">
+          {work[activeIndex].attributes.image.data.map((item, index) => (
+            <Image
+              key={item.id}
+              src={`${BASE_API}${item.attributes.url}`}
+              alt={`workimage-${index}`}
+              width={600}
+              height={440}
+              className="absolute top-0 left-0"
+              style={{ zIndex: index }}
+              objectFit="fill"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

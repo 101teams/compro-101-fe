@@ -57,7 +57,6 @@ export interface ServiceComponentProps {
 }
 
 export interface WorksImageProps {
-  slice(arg0: number, arg1: number): unknown;
   map(
     arg0: (
       image: {
@@ -68,7 +67,7 @@ export interface WorksImageProps {
             | import("next/dist/shared/lib/get-img-props").StaticImport;
         };
       },
-      imageIndex: number // Add index argument
+      imageIndex: any
     ) => import("react").JSX.Element
   ): import("react").ReactNode;
   id: number;
