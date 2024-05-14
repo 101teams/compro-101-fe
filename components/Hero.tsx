@@ -15,7 +15,7 @@ const Hero = () => {
       id="home"
       className="max-container flex xl:flex-row flex-col lg:justify-between sm:gap-0 md:gap-10 lg:gap-16 xl:gap-64 padding-x padding-y min-h-screen sm transition-all ease-in delay-150"
     >
-      <h1 className="text-6xl lg:text-[120px] leading-tight text-primary-white font-semibold">
+      <h1 className="text-6xl lg:text-[120px] leading-tight text-primary-white font-semibold uppercase">
         One <br /> Think <br />
         Solution.
       </h1>

@@ -24,6 +24,7 @@ export default function Home() {
   if (!services || !categories || !works) {
     return <div>Loading...</div>;
   }
+  console.log(works);
 
   return (
     <main className="relative overflow-hidden !scroll-smooth">

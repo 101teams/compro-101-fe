@@ -10,9 +10,15 @@ import "swiper/css/pagination";
 const Services = ({ services, categories }: ServiceComponentProps) => {
   const [selectedCategory, setSelectedCategory] =
     useState<string>("App Development");
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleSelectedCategory = (category: string) => {
-    setSelectedCategory(category);
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      setSelectedCategory(category);
+      setIsTransitioning(false);
+    }, 300);
   };
 
   return (
@@ -39,9 +45,12 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col ml-4 lg:ml-0">
+        <div
+          className={`service__carousel ${
+            isTransitioning ? "transitioning" : ""
+          }`}
+        >
           <Swiper
-            slidesPerView={1}
             spaceBetween={10}
             breakpoints={{
               640: {
@@ -60,12 +69,11 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
                 slidesPerView: 3,
                 spaceBetween: 10,
               },
-              "1366": {
+              1366: {
                 slidesPerView: 4,
-                slidesPerGroup: 20,
+                slidesPerGroup: 10,
               },
             }}
-            className="service__carousel"
           >
             {services
               .filter(

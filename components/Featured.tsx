@@ -6,7 +6,7 @@ const Featured = ({ works }: { works: WorksDataProps[] }) => {
   const featuredWork = works;
 
   return (
-    <div className="min-h-screen relative z-0" id="featured">
+    <div className="min-h-screen relative z-0 no-scrollbar" id="featured">
       <div className="featured__background">
         <div className="featured__container padding-y z-10">
           <h1 className="text-secondary-yellow lg:text-[60px] text-base">

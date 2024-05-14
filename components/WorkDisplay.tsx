@@ -13,8 +13,15 @@ const WorkDisplay = ({ categories, works }: WorkDisplayComponentProps) => {
   const [selectedCategory, setSelectedCategory] =
     useState<string>("App Development");
 
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
   const handleSelectedCategory = (category: string) => {
-    setSelectedCategory(category);
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      setSelectedCategory(category);
+      setIsTransitioning(false);
+    }, 300);
   };
 
   const filteredWorks = works.filter(
@@ -50,62 +57,68 @@ const WorkDisplay = ({ categories, works }: WorkDisplayComponentProps) => {
           </div>
           <hr className="bg-secondary-gray opacity-40 mt-4" />
           <div className="display__work-container">
-            {filteredWorks.map((work, index) => (
-              <>
-                <div className="display__work-cards" key={work.id}>
-                  <div className="flex justify-between w-full mb-10 lg:flex-row flex-col gap-5">
-                    <h1 className="text-primary-white text-4xl font-semibold ">
-                      {work.attributes.title}
-                    </h1>
-                    <div className="flex gap-4">
-                      <p className="text-secondary-gray font-semibold text-lg self-end">
-                        {work.attributes.category.data.attributes.title}
-                      </p>
-                      <p className="text-primary-white max-w-[280px] self-end text-right lg:text-left">
-                        {work.attributes.summary}
-                      </p>
+            <div
+              className={`service__carousel ${
+                isTransitioning ? "transitioning" : ""
+              }`}
+            >
+              {filteredWorks.map((work, index) => (
+                <>
+                  <div className="display__work-cards" key={work.id}>
+                    <div className="flex justify-between w-full mb-10 lg:flex-row flex-col gap-5">
+                      <h1 className="text-primary-white text-4xl font-semibold ">
+                        {work.attributes.title}
+                      </h1>
+                      <div className="flex gap-4">
+                        <p className="text-secondary-gray font-semibold text-lg self-end">
+                          {work.attributes.category.data.attributes.title}
+                        </p>
+                        <p className="text-primary-white max-w-[280px] self-end text-right lg:text-left">
+                          {work.attributes.summary}
+                        </p>
+                      </div>
                     </div>
+                    <Swiper
+                      slidesPerView={1}
+                      spaceBetween={30}
+                      loop={true}
+                      pagination={{
+                        clickable: true,
+                      }}
+                      navigation={true}
+                      modules={[Pagination, Navigation]}
+                      className="mySwiper"
+                    >
+                      {work.attributes.image.data.map(
+                        (
+                          image: {
+                            id: React.Key | null | undefined;
+                            attributes: { url: string | StaticImport };
+                          },
+                          imageIndex: any
+                        ) => (
+                          <SwiperSlide key={image.id}>
+                            <div className="flex justify-center">
+                              <Image
+                                src={`${BASE_API}${image.attributes.url}`}
+                                alt={`workimg-${imageIndex}`}
+                                width={400}
+                                height={400}
+                                className="lg:w-[1000px] lg:h-[500px] object-fit rounded-xl mb-10"
+                              />
+                            </div>
+                          </SwiperSlide>
+                        )
+                      )}
+                    </Swiper>
+                    <p className="text-primary-white text-lg font-regular my-4 text-center justify-center">
+                      {work.attributes.description}
+                    </p>
+                    <hr className="bg-secondary-gray opacity-40 my-10" />
                   </div>
-                  <Swiper
-                    slidesPerView={1}
-                    spaceBetween={30}
-                    loop={true}
-                    pagination={{
-                      clickable: true,
-                    }}
-                    navigation={true}
-                    modules={[Pagination, Navigation]}
-                    className="mySwiper"
-                  >
-                    {work.attributes.image.data.map(
-                      (
-                        image: {
-                          id: React.Key | null | undefined;
-                          attributes: { url: string | StaticImport };
-                        },
-                        imageIndex: any
-                      ) => (
-                        <SwiperSlide key={image.id}>
-                          <div className="flex justify-center">
-                            <Image
-                              src={`${BASE_API}${image.attributes.url}`}
-                              alt={`workimg-${imageIndex}`}
-                              width={400}
-                              height={400}
-                              className="lg:w-[1000px] lg:h-[500px] object-fit rounded-xl mb-10"
-                            />
-                          </div>
-                        </SwiperSlide>
-                      )
-                    )}
-                  </Swiper>
-                  <p className="text-primary-white text-lg font-regular my-4 text-center justify-center">
-                    {work.attributes.description}
-                  </p>
-                  <hr className="bg-secondary-gray opacity-40 my-10" />
-                </div>
-              </>
-            ))}
+                </>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@ const Navbar = () => {
   return (
     <header
       className={`padding-x py-5 sticky top-0 z-20 w-full ${
-        isTop ? "bg-[#0A1623]" : "bg-transparent"
+        isTop ? "bg-transparent" : "bg-[#0A1623]"
       } border-none transition-all duration-300`}
     >
       <nav className="flex justify-between items-center max-container 2xl:padding-x">

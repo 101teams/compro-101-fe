@@ -57,13 +57,25 @@ export interface ServiceComponentProps {
 }
 
 export interface WorksImageProps {
-  id: string;
-  data: {
-    attributes: {
-      name: string;
-      url: string;
-    };
-  };
+  slice(arg0: number, arg1: number): unknown;
+  map(
+    arg0: (
+      image: {
+        id: import("react").Key | null | undefined;
+        attributes: {
+          url:
+            | string
+            | import("next/dist/shared/lib/get-img-props").StaticImport;
+        };
+      },
+      imageIndex: number // Add index argument
+    ) => import("react").JSX.Element
+  ): import("react").ReactNode;
+  id: number;
+  attributes: {
+    name: string;
+    url: string;
+  }[];
 }
 
 export interface WorksDataProps {
@@ -75,7 +87,7 @@ export interface WorksDataProps {
     description: string;
     image: {
       data: WorksImageProps;
-    }[];
+    };
   };
 }
 

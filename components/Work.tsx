@@ -20,9 +20,6 @@ const Work = ({ work }: WorkProps) => {
     }
   };
 
-  const imgUrl =
-    BASE_API + work[activeIndex].attributes.image.data[0].data.attributes.url;
-
   const goToPreviousWork = () => {
     setActiveIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
   };
@@ -46,7 +43,7 @@ const Work = ({ work }: WorkProps) => {
           {work[activeIndex].attributes.description}
         </p>
         <button className="featured__more_btn" onClick={handleScroll}>
-          <MoveLeft />
+          <MoveRight />
           LEARN MORE
         </button>
       </div>
@@ -70,16 +67,19 @@ const Work = ({ work }: WorkProps) => {
             <MoveRight size={36} color="#DDDDDD" />
           </button>
         </div>
-        <div className="">
-          <Image
-            src={imgUrl}
-            alt="workimage"
-            width={600}
-            height={440}
-            className="lg:min-h-[440px] lg:min-w-[600px] lg:max-h-[400px] lg:max-w-[600px] h-[260px] w-screen object-fill"
-            objectFit="cover"
-          />
-        </div>
+
+        {Array.isArray(work[activeIndex].attributes.image.data) &&
+          work[activeIndex].attributes.image.data.length > 0 && (
+            <Image
+              key={work[activeIndex].attributes.image.data[0].id}
+              src={`${BASE_API}${work[activeIndex].attributes.image.data[0].attributes.url}`}
+              alt="workimage"
+              width={600}
+              height={440}
+              className="lg:min-h-[440px] lg:min-w-[600px] lg:max-h-[400px] lg:max-w-[600px] h-[260px] w-screen object-fill"
+              objectFit="cover"
+            />
+          )}
       </div>
     </div>
   );
