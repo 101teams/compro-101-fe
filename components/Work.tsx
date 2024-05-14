@@ -21,7 +21,7 @@ const Work = ({ work }: WorkProps) => {
   };
 
   const imgUrl =
-    BASE_API + work[activeIndex].attributes.image.data[0].attributes.url;
+    BASE_API + work[activeIndex].attributes.image.data[0].data.attributes.url;
 
   const goToPreviousWork = () => {
     setActiveIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
