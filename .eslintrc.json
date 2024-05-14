@@ -1,3 +1,16 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+      "rules": {
+        "react/no-unknown-property": [
+          "error",
+          {
+            "ignore": ["data-new-gr-c-s-check-loaded", "data-gr-ext-installed"]
+          }
+        ]
+      }
+    }
+  ]
 }
