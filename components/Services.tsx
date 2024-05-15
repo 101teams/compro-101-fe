@@ -4,7 +4,7 @@ import ServiceCategory from "./ServiceCategory";
 import { ServiceComponentProps } from "@/types";
 import ServiceCard from "./ServiceCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import "swiper/css/bundle";
 import "swiper/css/pagination";
 
 const Services = ({ services, categories }: ServiceComponentProps) => {
@@ -51,7 +51,8 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
           }`}
         >
           <Swiper
-            spaceBetween={10}
+            setWrapperSize={true}
+            spaceBetween={30}
             breakpoints={{
               640: {
                 slidesPerView: 1,
@@ -67,13 +68,14 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
               },
               1024: {
                 slidesPerView: 3,
-                spaceBetween: 10,
+                spaceBetween: 30,
               },
               1366: {
                 slidesPerView: 4,
-                slidesPerGroup: 10,
+                slidesPerGroup: 30,
               },
             }}
+            height={500}
           >
             {services
               .filter(

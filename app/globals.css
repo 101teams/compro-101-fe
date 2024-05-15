@@ -16,7 +16,7 @@ body {
   background: rgb(12, 30, 49);
   background: linear-gradient(
     331deg,
-    rgba(12, 30, 49, 1) 0%,
+    rgba(12, 30, 49, 1) 100%,
     rgba(2, 9, 18, 1) 100%
   );
   -ms-overflow-style: none;
@@ -75,11 +75,11 @@ body::-webkit-scrollbar {
   .backdrop__cirlce {
     background-color: transparent;
     background-image: radial-gradient(
-        at 100% 0%,
-        hsla(240, 0%, 0%, 0.25) 0px,
+        at 68% 46%,
+        hsla(324, 0%, 56%, 0.3) 0px,
         transparent 50%
       ),
-      radial-gradient(at 0% 100%, hsla(222, 3%, 38%, 0.19) 0px, transparent 50%);
+      radial-gradient(at 0% 100%, hsla(241, 0%, 56%, 0.3) 0px, transparent 50%);
     animation: heartbeat 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
@@ -99,9 +99,61 @@ body::-webkit-scrollbar {
     transition: all 0.5s ease-in;
   }
 
+  .container {
+    width: 3px;
+    height: 100px;
+    border: none;
+    position: relative;
+    background-color: white;
+  }
+
+  .square {
+    width: 3px;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  .square:nth-child(1) {
+    background-color: #fcd32e;
+    animation-name: fillYellow;
+  }
+
+  .square:nth-child(2) {
+    background-color: white;
+    animation-name: fillWhite;
+  }
+
+  @keyframes fillYellow {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 100%;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+
+  @keyframes fillWhite {
+    0% {
+      height: 0;
+    }
+    50% {
+      height: 0;
+    }
+    100% {
+      height: 100%;
+    }
+  }
+
   /* HERO SECTION */
   .hero__button {
-    @apply flex justify-center items-center mt-10 xl:mt-44 border border-secondary-yellow w-max py-3 px-3 rounded-[24px] gap-3 text-primary-white text-xl font-semibold;
+    @apply flex justify-center items-center mt-10 xl:mt-44 border border-secondary-yellow w-max py-3 px-3 rounded-[24px] gap-3 text-secondary-yellow text-xl font-semibold;
     background: linear-gradient(to right, #fcd32e 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: right bottom;
@@ -118,11 +170,21 @@ body::-webkit-scrollbar {
     @apply text-primary-blue;
     background-position: left bottom;
   }
+  .arrow-icon path {
+    transition: fill 0.8s ease, transform 0.8s ease;
+  }
 
-  .hero__button:hover img {
+  .hero__button:hover .arrow-icon {
+    transition: all 0.5s ease-in-out;
     transform: rotate(90deg);
-    filter: brightness(0) saturate(100%) invert(8%) sepia(33%) saturate(951%)
-      hue-rotate(170deg) brightness(92%) contrast(99%);
+  }
+
+  .hero__button .arrow-icon {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .hero__button:hover .arrow-icon path {
+    fill: #0c1e31;
   }
 
   /* SERVICE SECTION */
@@ -135,7 +197,8 @@ body::-webkit-scrollbar {
 
   .service__category_btn:hover,
   .service__category_btn:focus {
-    border-color: #9b9b9b;
+    border-color: #9b9b9b !important;
+    outline: none; /* Remove outline on focus */
   }
 
   .service__category-carousel {
@@ -143,7 +206,7 @@ body::-webkit-scrollbar {
     transition: all 1s ease-in;
   }
   .service__carousel {
-    @apply my-5;
+    @apply my-5 h-full;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
   }
@@ -151,11 +214,36 @@ body::-webkit-scrollbar {
     opacity: 0;
   }
   .service__card-container {
-    @apply flex flex-col max-w-[300px] max-h-[300px] px-6 py-6 justify-between gap-5 bg-opacity-30 bg-gray-500 backdrop-blur-[9.2px] border border-gray-300 rounded-lg shadow-md min-h-[300px] min-w-[300px] transition-transform duration-300;
+    @apply flex flex-col  max-h-[300px] px-6 py-6 justify-between gap-5 bg-opacity-30 bg-gray-500 backdrop-blur-[9.2px] border border-gray-300 rounded-lg shadow-md min-h-[300px] min-w-[300px] transition-transform duration-300 cursor-pointer;
     width: 100%;
     height: 100%;
-    transition: all 0.5s ease-in;
+    transition: all 0.3s ease-in;
   }
+
+  .service__card-container:hover {
+    -webkit-transform: scale(0.99);
+    -moz-transform: scale(0.99);
+    -ms-transform: scale(0.99);
+    -o-transform: scale(0.99);
+    transform: scale(0.99);
+  }
+
+  /* .service__card-container:hover h1 {
+    @apply text-secondary-yellow;
+    -webkit-transition: color 0.5s linear;
+    -moz-transition: color 0.5s linear;
+    -ms-transition: color 0.5s linear;
+    -o-transition: color 0.5s linear;
+    transition: color 0.5s linear;
+  }
+  .service__card-container:hover p {
+    @apply text-secondary-yellow;
+    -webkit-transition: color 0.5s linear;
+    -moz-transition: color 0.5s linear;
+    -ms-transition: color 0.5s linear;
+    -o-transition: color 0.5s linear;
+    transition: color 0.5s linear;
+  } */
 
   /* FEATURED SECTION */
 
@@ -191,6 +279,15 @@ body::-webkit-scrollbar {
   .featured__slider_btn {
     @apply flex justify-center items-center rounded-full bg-secondary-gray min-w-[54px] min-h-[54px] opacity-60;
     border: 1px white solid;
+    transition: all 0.3s ease-in;
+  }
+
+  .featured__slider_btn:hover {
+    -webkit-transform: scale(1.1) translate(5px, 0px);
+    -moz-transform: scale(1.1) translate(5px, 0px);
+    -ms-transform: scale(1.1) translate(5px, 0px);
+    -o-transform: scale(1.1) translate(5px, 0px);
+    transform: scale(1.1) translate(5px, 0px);
   }
 
   /* WORK SECTION */
@@ -211,10 +308,25 @@ body::-webkit-scrollbar {
   }
 
   .display__category-btn {
-    @apply justify-center items-center relative lg:text-xl w-fit block  text-primary-white mx-3;
-    transition: all 0.5s ease-in;
+    @apply justify-center items-center relative lg:text-xl w-fit block  text-primary-white mx-3  text-xl  after:block after:content-[''] after:absolute after:h-[3px] after:bg-secondary-yellow after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-left pb-1;
+    transition: all 1s ease-in;
+  }
+  .display__category-btn::after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #fcd32e;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+    transform-origin: left;
   }
 
+  .display__category-btn:hover::after {
+    transform: scaleX(1);
+  }
   .display__work-container {
     @apply flex flex-col gap-5 my-5;
   }
@@ -241,6 +353,6 @@ body::-webkit-scrollbar {
 
   .scale-up-and-color:hover {
     transform: scale(1.05);
-    color: #fcd32e; /* Adjust color as needed */
+    color: #fcd32e;
   }
 }
