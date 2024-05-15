@@ -47,7 +47,7 @@ const nextConfig = {
         ],
       },
       {
-        source: "/api/categories/:path*",
+        source: "/api/categories/",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
