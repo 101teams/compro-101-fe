@@ -15,7 +15,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/api/works/:path*",
+        source: "/api/works?populate=*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
@@ -31,7 +31,7 @@ const nextConfig = {
         ],
       },
       {
-        source: "/api/services/:path*",
+        source: "/api/services?populate=*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           { key: "Access-Control-Allow-Origin", value: "*" },
