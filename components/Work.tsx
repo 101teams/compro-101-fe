@@ -5,8 +5,6 @@ import Image from "next/image";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { WorksDataProps } from "@/types";
 import ENDPOINT, { BASE_API } from "@/constant/endpoint";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 
 interface WorkProps {
   work: WorksDataProps[];
@@ -41,7 +39,7 @@ const Work = ({ work }: WorkProps) => {
         <h1 className="font-bold text-[40px] text-primary-white lg:pt-10 min-h-[120px]">
           {work[activeIndex].attributes.title}
         </h1>
-        <p className="text-primary-white lg:text-2xl min-h-[240px]">
+        <p className="text-primary-white lg:text-2xl min-h-[280px] max-h-[280px]">
           {work[activeIndex].attributes.description}
         </p>
         <button className="featured__more_btn" onClick={handleScroll}>
@@ -70,15 +68,15 @@ const Work = ({ work }: WorkProps) => {
           </button>
         </div>
 
-        <div className="relative h-[440px] w-[600px] lg:min-h-[440px] lg:min-w-[600px] lg:max-h-[440px] lg:max-w-[600px]">
+        <div className="relative h-[440px] w-[800px] lg:min-h-[440px] lg:min-w-[800px] lg:max-h-[440px] lg:max-w-[800px] ml-6">
           {work[activeIndex].attributes.image.data.map((item, index) => (
             <Image
               key={item.id}
-              src={`${BASE_API}${item.attributes.url}`}
+              src={`${item.attributes.url}`}
               alt={`workimage-${index}`}
               width={600}
               height={440}
-              className="absolute top-0 left-0"
+              className="absolute top-0 left-0 h-[240px] w-[400px] lg:min-h-[440px] lg:min-w-[800px] lg:max-h-[440px] lg:max-w-[800px] rounded-3xl"
               style={{ zIndex: index }}
               objectFit="fill"
             />

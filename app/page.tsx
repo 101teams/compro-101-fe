@@ -9,11 +9,6 @@ const fetcher = async (url: string) => {
   const options = {
     headers: {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
-      "Access-Control-Allow-Credentials": "true",
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-      "Access-Control-Allow-Headers":
-        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
     },
   };
   const request = await fetch(url, options);
@@ -29,7 +24,6 @@ export default function Home() {
   if (!services || !categories || !works) {
     return <div>Loading...</div>;
   }
-  console.log(works);
 
   return (
     <main className="relative overflow-hidden !scroll-smooth">

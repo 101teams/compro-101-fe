@@ -100,11 +100,11 @@ const WorkDisplay = ({ categories, works }: WorkDisplayComponentProps) => {
                           <SwiperSlide key={image.id}>
                             <div className="flex justify-center">
                               <Image
-                                src={`${BASE_API}${image.attributes.url}`}
+                                src={`${image.attributes.url}`}
                                 alt={`workimg-${imageIndex}`}
                                 width={400}
                                 height={400}
-                                className="lg:w-[1000px] lg:h-[500px] object-fit rounded-xl mb-10"
+                                className="lg:w-[800px] lg:h-[440px] object-fit rounded-xl mb-10"
                               />
                             </div>
                           </SwiperSlide>
