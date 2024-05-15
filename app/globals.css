@@ -75,22 +75,21 @@ body::-webkit-scrollbar {
   .backdrop__cirlce {
     background-color: transparent;
     background-image: radial-gradient(
-        at 68% 46%,
-        hsla(324, 0%, 56%, 0.3) 0px,
+        at 98% 41%,
+        hsla(324, 0%, 56%, 0.11) 0px,
         transparent 50%
       ),
-      radial-gradient(at 0% 100%, hsla(241, 0%, 56%, 0.3) 0px, transparent 50%);
-    animation: heartbeat 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      radial-gradient(at 0% 100%, hsla(241, 0%, 56%, 0.2) 0px, transparent 50%);
   }
 
   .service__backdrop {
     background-color: transparent;
     background-image: radial-gradient(
         at 100% 100%,
-        hsla(240, 0%, 34%, 0.25) 0px,
+        hsla(324, 0%, 56%, 0.12) 0px,
         transparent 50%
       ),
-      radial-gradient(at 0% 0%, hsla(222, 3%, 38%, 0.19) 0px, transparent 50%);
+      radial-gradient(at 0% 0%, hsla(241, 0%, 56%, 0.2) 0px, transparent 50%);
   }
 
   /* NAVBAR */
