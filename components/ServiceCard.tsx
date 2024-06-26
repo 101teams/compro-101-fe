@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const ServiceCard = ({ title, description }: ServiceCardProps) => {
-  const [hovered, setHovered] = useState(false);
   const handleScroll = () => {
     const element = document.getElementById("work");
     if (element) {
@@ -14,11 +13,7 @@ const ServiceCard = ({ title, description }: ServiceCardProps) => {
   };
 
   return (
-    <div
-      className={`service__card-container ${hovered ? "hovered" : ""}`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <div className={`service__card-container`}>
       <Image
         src="/card_icon.svg"
         alt="cardlogo"
