@@ -137,7 +137,7 @@ body {
 
   /* HERO SECTION */
   .hero__button {
-    @apply flex justify-center items-center mt-10 xl:mt-44 border border-secondary-yellow w-max py-3 px-3 rounded-[24px] gap-3 text-primary-white text-xl font-semibold;
+    @apply flex justify-center items-center mt-10 xl:mt-44 border border-secondary-yellow w-max py-3 px-3 rounded-[24px] gap-3 text-secondary-yellow text-xl font-semibold;
     background: linear-gradient(to right, #fcd32e 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: right bottom;
@@ -154,11 +154,21 @@ body {
     @apply text-primary-blue;
     background-position: left bottom;
   }
+  .arrow-icon path {
+    transition: fill 0.8s ease, transform 0.8s ease;
+  }
 
-  .hero__button:hover img {
+  .hero__button:hover .arrow-icon {
+    transition: all 0.5s ease-in-out;
     transform: rotate(90deg);
-    filter: brightness(0) saturate(100%) invert(8%) sepia(33%) saturate(951%)
-      hue-rotate(170deg) brightness(92%) contrast(99%);
+  }
+
+  .hero__button .arrow-icon {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .hero__button:hover .arrow-icon path {
+    fill: #0c1e31;
   }
 
   /* SERVICE SECTION */
