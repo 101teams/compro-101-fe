@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="flex justify-between flex-col lg:flex-row gap-5 text-center">
             <h1 className="text-primary-white text-4xl">Work with us</h1>
             <h2 className="text-primary-white text-4xl font-bold">
-              work@101dev.co
+              info@101team.it
             </h2>
           </div>
           <hr className="bg-secondary-gray opacity-40 mt-20" />

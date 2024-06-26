@@ -20,6 +20,9 @@ const Work = ({ work }: WorkProps) => {
     }
   };
 
+  const imgUrl =
+    BASE_API + work[activeIndex].attributes.image.data[0].attributes.url;
+
   const goToPreviousWork = () => {
     setActiveIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - 1));
   };
@@ -39,16 +42,16 @@ const Work = ({ work }: WorkProps) => {
         <h1 className="font-bold text-[40px] text-primary-white lg:pt-10 min-h-[120px]">
           {work[activeIndex].attributes.title}
         </h1>
-        <p className="text-primary-white lg:text-2xl min-h-[280px] max-h-[280px]">
+        <p className="text-primary-white lg:text-2xl min-h-[240px]">
           {work[activeIndex].attributes.description}
         </p>
         <button className="featured__more_btn" onClick={handleScroll}>
-          <MoveRight />
+          <MoveLeft />
           LEARN MORE
         </button>
       </div>
       <div className="flex flex-col">
-        <div className="flex gap-5 my-5 self-end">
+        <div className="flex self-end gap-5 my-5">
           <button
             className={`featured__slider_btn ${
               isFirstIndex ? "blur-[2px] cursor-not-allowed" : ""
@@ -67,20 +70,15 @@ const Work = ({ work }: WorkProps) => {
             <MoveRight size={36} color="#DDDDDD" />
           </button>
         </div>
-
-        <div className="relative h-[440px] w-[800px] lg:min-h-[440px] lg:min-w-[800px] lg:max-h-[440px] lg:max-w-[800px] ml-6">
-          {work[activeIndex].attributes.image.data.map((item, index) => (
-            <Image
-              key={item.id}
-              src={`${item.attributes.url}`}
-              alt={`workimage-${index}`}
-              width={600}
-              height={440}
-              className="absolute top-0 left-0 h-[240px] w-[400px] lg:min-h-[440px] lg:min-w-[800px] lg:max-h-[440px] lg:max-w-[800px] rounded-3xl"
-              style={{ zIndex: index }}
-              objectFit="fill"
-            />
-          ))}
+        <div className="">
+          <Image
+            src={imgUrl}
+            alt="workimage"
+            width={600}
+            height={440}
+            className="lg:min-h-[440px] lg:min-w-[600px] lg:max-h-[400px] lg:max-w-[600px] h-[260px] w-screen object-fill"
+            objectFit="cover"
+          />
         </div>
       </div>
     </div>

@@ -15,7 +15,6 @@ const WorkCategory = ({
       style={{
         position: "relative",
         overflow: "hidden",
-        paddingBottom: "5px",
       }}
       onClick={() => onClick(category)}
     >
@@ -28,7 +27,6 @@ const WorkCategory = ({
           height: "3px",
           backgroundColor: "#FFD700",
           width: isActive ? "100%" : "0",
-
           transition: "width 0.3s ease-in",
         }}
       ></span>
