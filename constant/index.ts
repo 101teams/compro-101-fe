@@ -21,7 +21,7 @@ export const footerLinks = [
 
   {
     title: "Github",
-    route: "/",
+    route: "https://github.com/101teams",
   },
 ];
 

@@ -179,10 +179,12 @@ body {
     transition: border-color 0.5s ease-in-out;
   }
 
-  .service__category_btn:hover,
+  .service__category_btn:hover{
+    border: 1px solid #9b9b9b
+  }
   .service__category_btn:focus {
     border-color: #9b9b9b !important;
-    outline: none; /* Remove outline on focus */
+    outline: none; 
   }
 
   .service__category-carousel {
@@ -205,11 +207,11 @@ body {
   }
 
   .service__card-container:hover {
-    -webkit-transform: scale(0.99);
-    -moz-transform: scale(0.99);
-    -ms-transform: scale(0.99);
-    -o-transform: scale(0.99);
-    transform: scale(0.99);
+    -webkit-transform: scale(0.1);
+    -moz-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    -o-transform: scale(0.1);
+    transform: scale(0.1);
   }
 
   /* FEATURED SECTION */
