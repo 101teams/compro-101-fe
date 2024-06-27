@@ -177,15 +177,21 @@ body {
     border: 1px solid transparent;
     border-radius: 20px;
     transition: border-color 0.5s ease-in-out;
+    box-sizing: border-box; 
+    will-change: border-color; 
   }
+  
+  .service__category_btn:hover {
+    border: 1px solid #9b9b9b !important;
+    outline: none;
 
-  .service__category_btn:hover{
-    border: 1px solid #9b9b9b
   }
-  .service__category_btn:focus {
-    border-color: #9b9b9b !important;
+  
+  /* .service__category_btn:focus {
+    border-color: #9b9b9b;
     outline: none; 
   }
+   */
 
   .service__category-carousel {
     @apply flex lg:flex-row lg:mt-3 lg:gap-5 flex-col items-start text-lg;
@@ -207,11 +213,11 @@ body {
   }
 
   .service__card-container:hover {
-    -webkit-transform: scale(0.1);
-    -moz-transform: scale(0.1);
-    -ms-transform: scale(0.1);
-    -o-transform: scale(0.1);
-    transform: scale(0.1);
+    -webkit-transform: scale(0.99);
+    -moz-transform: scale(0.99);
+    -ms-transform: scale(0.99);
+    -o-transform: scale(0.99);
+    transform: scale(0.99);
   }
 
   /* FEATURED SECTION */
