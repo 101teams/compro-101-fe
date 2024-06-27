@@ -4,15 +4,21 @@ import ServiceCategory from "./ServiceCategory";
 import { ServiceComponentProps } from "@/types";
 import ServiceCard from "./ServiceCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import "swiper/css/bundle";
 import "swiper/css/pagination";
 
 const Services = ({ services, categories }: ServiceComponentProps) => {
   const [selectedCategory, setSelectedCategory] =
     useState<string>("App Development");
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const handleSelectedCategory = (category: string) => {
-    setSelectedCategory(category);
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      setSelectedCategory(category);
+      setIsTransitioning(false);
+    }, 300);
   };
 
   return (
@@ -39,10 +45,14 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
             </div>
           ))}
         </div>
-        <div className="flex flex-col ml-4 lg:ml-0">
+        <div
+          className={`service__carousel ${
+            isTransitioning ? "transitioning" : ""
+          }`}
+        >
           <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
+            setWrapperSize={true}
+            spaceBetween={30}
             breakpoints={{
               640: {
                 slidesPerView: 1,
@@ -58,14 +68,14 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
               },
               1024: {
                 slidesPerView: 3,
-                spaceBetween: 10,
+                spaceBetween: 30,
               },
-              "1366": {
+              1366: {
                 slidesPerView: 4,
-                slidesPerGroup: 20,
+                slidesPerGroup: 30,
               },
             }}
-            className="service__carousel"
+            height={500}
           >
             {services
               .filter(

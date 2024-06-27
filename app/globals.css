@@ -181,11 +181,21 @@ body {
 
   .service__category_btn:hover,
   .service__category_btn:focus {
-    border-color: #9b9b9b;
+    border-color: #9b9b9b !important;
+    outline: none; /* Remove outline on focus */
   }
 
   .service__category-carousel {
     @apply flex lg:flex-row lg:mt-3 lg:gap-5 flex-col items-start text-lg;
+    transition: all 1s ease-in;
+  }
+  .service__carousel {
+    @apply my-5 h-full;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .service__carousel.transitioning {
+    opacity: 0;
   }
   .service__card-container {
     @apply flex flex-col  max-h-[300px] px-6 py-6 justify-between gap-5 bg-opacity-30 bg-gray-500 backdrop-blur-[9.2px] border border-gray-300 rounded-lg shadow-md min-h-[300px] min-w-[300px] transition-transform duration-300 cursor-pointer;
@@ -200,10 +210,6 @@ body {
     -ms-transform: scale(0.99);
     -o-transform: scale(0.99);
     transform: scale(0.99);
-  }
-
-  .service__carousel {
-    @apply w-full mt-5 flex items-center justify-center;
   }
 
   /* FEATURED SECTION */
