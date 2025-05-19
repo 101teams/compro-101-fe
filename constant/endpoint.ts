@@ -1,4 +1,4 @@
-export const BASE_API = "http://localhost:3030";
+export const BASE_API = process.env.NEXT_PUBLIC_BASE_API;
 
 const ENDPOINT = {
   SERVICES: `${BASE_API}/api/services?populate=*`,
