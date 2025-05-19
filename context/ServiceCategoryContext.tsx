@@ -1,7 +1,7 @@
 import { ServiceCategoryContextData } from "@/types";
 import React, { createContext, useState } from "react";
 
-// Create the context
+
 export const ServiceCategoryContext = createContext<ServiceCategoryContextData>(
   {
     activeCategory: null,

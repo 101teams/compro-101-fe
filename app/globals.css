@@ -11,7 +11,10 @@
   scroll-behavior: smooth;
   font-family: "Barlow Semi Condensed", sans-serif;
 }
-
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 body {
   background: rgb(12, 30, 49);
   background: linear-gradient(
@@ -19,6 +22,9 @@ body {
     rgba(12, 30, 49, 1) 0%,
     rgba(2, 9, 18, 1) 100%
   );
+  scrollbar-width: none; /* hides scrollbar */
+  -ms-overflow-style: none; /* for IE and Edge */
+  overflow-y: scroll; /* keeps scrolling */
 }
 
 @layer components {
@@ -177,16 +183,15 @@ body {
     border: 1px solid transparent;
     border-radius: 20px;
     transition: border-color 0.5s ease-in-out;
-    box-sizing: border-box; 
-    will-change: border-color; 
+    box-sizing: border-box;
+    will-change: border-color;
   }
-  
+
   .service__category_btn:hover {
     border: 1px solid #9b9b9b !important;
     outline: none;
-
   }
-  
+
   /* .service__category_btn:focus {
     border-color: #9b9b9b;
     outline: none; 
@@ -358,5 +363,160 @@ body {
   .scale-up-and-color:hover {
     transform: scale(1.05);
     color: #fcd32e; /* Adjust color as needed */
+  }
+
+  /* Base styles for the dark theme */
+  .work-detail-page {
+    --primary-bg: rgb(12, 30, 49);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent-color: #3b82f6;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+  }
+
+  /* Swiper custom styles */
+  .gallery-swiper {
+    --swiper-theme-color: #3b82f6 !important;
+    --swiper-navigation-size: 30px !important;
+  }
+
+  .gallery-swiper .swiper-button-next,
+  .gallery-swiper .swiper-button-prev {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+  }
+
+  .gallery-swiper .swiper-button-next:after,
+  .gallery-swiper .swiper-button-prev:after {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .gallery-swiper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    opacity: 0.6;
+  }
+
+  .gallery-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    background-color: var(--accent-color);
+  }
+
+  /* Glassmorphism effect for cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Hero section gradient */
+  .hero-gradient {
+    background: linear-gradient(
+      to bottom,
+      rgba(12, 30, 49, 0) 0%,
+      rgba(12, 30, 49, 0.8) 70%,
+      rgb(12, 30, 49) 100%
+    );
+  }
+
+  /* Image hover effects */
+  .image-grid-item:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .image-grid-item:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Custom scrollbar for the page */
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--primary-bg);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+  }
+
+  /* Animation keyframes for loading */
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Responsive text adjustments */
+  @media (max-width: 768px) {
+    .project-title {
+      font-size: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+  }
+
+  /* Focus styles for accessibility */
+  button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+
+  /* Transitions */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Related works card hover effects */
+  .related-work-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .related-work-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .related-work-card:hover .card-overlay {
+    opacity: 1;
+  }
+
+  .related-work-card:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+  /* Group hover effects */
+  .group:hover .group-hover\:opacity-100 {
+    opacity: 1;
   }
 }

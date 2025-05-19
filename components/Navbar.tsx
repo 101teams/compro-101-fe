@@ -4,18 +4,27 @@ import Image from "next/image";
 import { navLinks } from "@/constant";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isTop, setIsTop] = useState(true);
   const [nav, setNav] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+  const isWorkDetailPage = pathname?.startsWith("/work/");
+
   const handleNav = () => {
     setNav(!nav);
   };
 
   const handleScroll = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (isWorkDetailPage) {
+      router.push(`/#${id}`);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -39,13 +48,20 @@ const Navbar = () => {
       } border-none transition-all duration-300`}
     >
       <nav className="flex justify-between items-center max-container 2xl:padding-x">
-        <button
-          onClick={() => handleScroll("home")}
-          className="flex justify-center items-center"
-        >
-          <Image src="/logo.svg" width={30} height={30} alt="logo" />
-          <p className="text-2xl text-primary-white ml-3">101 Team</p>
-        </button>
+        {isWorkDetailPage ? (
+          <Link href="/" className="flex justify-center items-center">
+            <Image src="/logo.svg" width={30} height={30} alt="logo" />
+            <p className="text-2xl text-primary-white ml-3">101 Team</p>
+          </Link>
+        ) : (
+          <button
+            onClick={() => handleScroll("home")}
+            className="flex justify-center items-center"
+          >
+            <Image src="/logo.svg" width={30} height={30} alt="logo" />
+            <p className="text-2xl text-primary-white ml-3">101 Team</p>
+          </button>
+        )}
         <ul className="flex justify-between items-center gap-5 text-primary-white text-md max-lg:hidden">
           <button onClick={() => handleScroll("work")} className="nav__links">
             Work

@@ -1,4 +1,4 @@
-export const BASE_API = "https://compro-api.101team.eu";
+export const BASE_API = "http://localhost:3030";
 
 const ENDPOINT = {
   SERVICES: `${BASE_API}/api/services?populate=*`,

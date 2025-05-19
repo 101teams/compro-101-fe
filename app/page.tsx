@@ -6,23 +6,58 @@ import { CategoryDataProps, ServiceDataProps, WorksDataProps } from "@/types";
 import useSWR from "swr";
 
 const fetcher = async (url: string) => {
-  const options = {
-    headers: {
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
-    },
-  };
-  const request = await fetch(url, options);
-  const response = await request.json();
-  return response.data;
+  try {
+    const options = {
+      headers: {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    const request = await fetch(url, options);
+
+    if (!request.ok) {
+      throw new Error(`API request failed with status ${request.status}`);
+    }
+
+    const response = await request.json();
+    return response.data;
+  } catch (error) {
+    console.error("API Error:", error);
+    throw error;
+  }
 };
 
 export default function Home() {
-  const { data: services } = useSWR(ENDPOINT.SERVICES, fetcher);
-  const { data: categories } = useSWR(ENDPOINT.CATEGORY, fetcher, {});
-  const { data: works } = useSWR(ENDPOINT.WORKS, fetcher, {});
+  const { data: services, error: servicesError } = useSWR(
+    ENDPOINT.SERVICES,
+    fetcher
+  );
+  const { data: categories, error: categoriesError } = useSWR(
+    ENDPOINT.CATEGORY,
+    fetcher
+  );
+  const { data: works, error: worksError } = useSWR(ENDPOINT.WORKS, fetcher);
 
+  // Handle loading state
   if (!services || !categories || !works) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <p className="text-primary-white text-xl">Loading...</p>
+      </div>
+    );
+  }
+
+  // Handle error state
+  if (servicesError || categoriesError || worksError) {
+    return (
+      <div className="flex flex-col justify-center items-center min-h-screen">
+        <p className="text-primary-white text-xl mb-4">Error loading data</p>
+        <p className="text-primary-white text-sm opacity-70">
+          Please check your API configuration and try again
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -35,7 +70,6 @@ export default function Home() {
       </div>
       <Featured works={works} />
       <WorkDisplay works={works} categories={categories} />
-      <Footer />
     </main>
   );
 }
