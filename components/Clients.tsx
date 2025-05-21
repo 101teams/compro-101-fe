@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { BASE_API } from "@/constant/endpoint";
 import { ClientsLogoProps } from "@/types";
@@ -16,17 +16,22 @@ const Clients = ({ clients }: ClientsProps) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentKeys, setCurrentKeys] = useState<string[]>(Array(8).fill(""));
 
-  const shuffleClients = () => {
+  // Move shuffleClients to useCallback to avoid the dependency warning
+  const shuffleClients = useCallback(() => {
+    if (!clients || clients.length === 0) return Array(8).fill(null);
     const shuffled = [...clients].sort(() => Math.random() - 0.5);
     return shuffled.slice(0, 8);
-  };
+  }, [clients]);
 
   useEffect(() => {
     if (!clients || clients.length === 0) return;
+
     const initialClients = shuffleClients();
     setVisibleClients(initialClients);
     setCurrentKeys(
-      initialClients.map((client) => `${client.id}-${Date.now()}`)
+      initialClients.map((client) =>
+        client ? `${client.id}-${Date.now()}` : `null-${Date.now()}`
+      )
     );
 
     const intervalId = setInterval(() => {
@@ -37,7 +42,9 @@ const Clients = ({ clients }: ClientsProps) => {
           const newClients = shuffleClients();
           setVisibleClients(newClients);
           setCurrentKeys(
-            newClients.map((client) => `${client.id}-${Date.now()}`)
+            newClients.map((client) =>
+              client ? `${client.id}-${Date.now()}` : `null-${Date.now()}`
+            )
           );
           setIsTransitioning(false);
         }, 100);
@@ -45,7 +52,7 @@ const Clients = ({ clients }: ClientsProps) => {
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, [clients]);
+  }, [shuffleClients, clients]); // Include both shuffleClients and clients in the dependency array
 
   if (!clients || clients.length === 0) {
     return null;
@@ -96,16 +103,19 @@ const Clients = ({ clients }: ClientsProps) => {
                       duration: 0.2,
                     }}
                   >
-                    <Image
-                      src={`${BASE_API}${visibleClients[index].logo.url}`}
-                      alt={
-                        visibleClients[index].logo.alternativeText ||
-                        visibleClients[index].logo.name
-                      }
-                      fill
-                      className="object-contain p-4"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    />
+                    {visibleClients[index] && (
+                      <Image
+                        src={`${BASE_API}${visibleClients[index]?.logo.url}`}
+                        alt={
+                          visibleClients[index]?.logo.alternativeText ||
+                          visibleClients[index]?.logo.name ||
+                          "Client logo"
+                        }
+                        fill
+                        className="object-contain p-4"
+                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                      />
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>
