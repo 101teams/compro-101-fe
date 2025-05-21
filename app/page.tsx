@@ -4,6 +4,7 @@ import Image from "next/image";
 import ENDPOINT from "@/constant/endpoint";
 import { CategoryDataProps, ServiceDataProps, WorksDataProps } from "@/types";
 import useSWR from "swr";
+import Clients from "@/components/Clients";
 
 const fetcher = async (url: string) => {
   try {
@@ -38,6 +39,10 @@ export default function Home() {
     fetcher
   );
   const { data: works, error: worksError } = useSWR(ENDPOINT.WORKS, fetcher);
+  const { data: clients, error: clientsError } = useSWR(
+    ENDPOINT.CLIENTS,
+    fetcher
+  );
 
   // Handle loading state
   if (!services || !categories || !works) {
@@ -49,12 +54,12 @@ export default function Home() {
   }
 
   // Handle error state
-  if (servicesError || categoriesError || worksError) {
+  if (servicesError || categoriesError || worksError || clientsError) {
     return (
       <div className="flex flex-col justify-center items-center min-h-screen">
         <p className="text-primary-white text-xl mb-4">Error loading data</p>
         <p className="text-primary-white text-sm opacity-70">
-          Please check your API configuration and try again
+          Theres Somthing Wrong Please Try Again Later!
         </p>
       </div>
     );
@@ -68,6 +73,7 @@ export default function Home() {
       <div className="service__backdrop">
         <Services services={services} categories={categories} />
       </div>
+      <Clients clients={clients} />
       <Featured works={works} />
       <WorkDisplay works={works} categories={categories} />
     </main>
