@@ -52,7 +52,7 @@ const Clients = ({ clients }: ClientsProps) => {
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, [shuffleClients, clients]); // Include both shuffleClients and clients in the dependency array
+  }, [shuffleClients, clients]);
 
   if (!clients || clients.length === 0) {
     return null;
@@ -60,7 +60,7 @@ const Clients = ({ clients }: ClientsProps) => {
 
   return (
     <section className="max-container padding-x py-12 md:py-16 lg:py-24">
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto">
         <div className="mb-8 md:mb-12 lg:mb-16">
           <h1 className="text-primary-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
             Our Clients & Partners
