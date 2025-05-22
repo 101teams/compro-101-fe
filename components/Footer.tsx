@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="flex justify-between flex-col lg:flex-row gap-5 text-center">
             <h1 className="text-primary-white text-4xl">Work with us</h1>
             <h2 className="text-primary-white text-4xl font-bold">
-              info@101team.it
+              info@101-team.it
             </h2>
           </div>
           <hr className="bg-secondary-gray opacity-40 mt-20" />
@@ -73,7 +73,7 @@ const Footer = () => {
             </h1>
           </div>
           <p className="self-end text-primary-white lg:-mt-20 ml-20 text-xs lg:text-base">
-            Copyright © 2024 101 Development Team
+            Copyright © 2025 101 Development Team
           </p>
         </div>
       </section>
