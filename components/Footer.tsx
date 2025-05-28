@@ -4,8 +4,10 @@ import { Cpu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const tr = useTranslations("footer");
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -22,7 +24,7 @@ const Footer = () => {
       >
         <div className="flex flex-col">
           <div className="flex justify-between flex-col lg:flex-row gap-5 text-center">
-            <h1 className="text-primary-white text-4xl">Work with us</h1>
+            <h1 className="text-primary-white text-4xl">{tr("title")}</h1>
             <h2 className="text-primary-white text-4xl font-bold">
               info@101-team.it
             </h2>
@@ -31,7 +33,7 @@ const Footer = () => {
           <div className="flex flex-row gap-20 ">
             <div className="flex flex-col mt-20">
               <h1 className="lg:text-3xl text-primary-white font-semibold">
-                Sitemaps
+                {tr("sitemaps")}
               </h1>
               {sitemapsLinks.map((link) => (
                 <button
@@ -45,7 +47,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-col mt-20">
               <h1 className="lg:text-3xl text-primary-white font-semibold">
-                Socials
+                {tr("socials")}
               </h1>
               {footerLinks.map((link) => (
                 <Link
@@ -73,7 +75,7 @@ const Footer = () => {
             </h1>
           </div>
           <p className="self-end text-primary-white lg:-mt-20 ml-20 text-xs lg:text-base">
-            Copyright © 2025 101 Development Team
+            {tr("copyright")}
           </p>
         </div>
       </section>

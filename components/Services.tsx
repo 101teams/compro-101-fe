@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import "swiper/css/pagination";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations, useLocale } from "next-intl";
 
 const containerVariants = {
   hidden: {},
@@ -31,10 +32,38 @@ const cardVariants = {
 };
 
 const Services = ({ services, categories }: ServiceComponentProps) => {
+  const t = useTranslations("services");
+  const locale = useLocale();
+
+  // Get default category based on locale
+  const getDefaultCategory = () => {
+    return locale === "it"
+      ? "Sviluppo di applicazioni"
+      : "Application Development";
+  };
+
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    "Application Development"
+    getDefaultCategory()
   );
   const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Update selected category when locale changes
+  useEffect(() => {
+    const getDefaultCategory = () => {
+      return locale === "it"
+        ? "Sviluppo di applicazioni"
+        : "Application Development";
+    };
+
+    const defaultCategory = getDefaultCategory();
+    // Only update if the current category matches the old default
+    if (
+      (locale === "en" && selectedCategory === "Sviluppo di applicazioni") ||
+      (locale === "it" && selectedCategory === "Application Development")
+    ) {
+      setSelectedCategory(defaultCategory);
+    }
+  }, [locale, selectedCategory]);
 
   // console.log("Services data:", services);
   // console.log("Categories data:", categories);
@@ -70,8 +99,8 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
       id="services"
     >
       <div className="flex flex-col justify-center padding-y">
-        <h1 className="text-primary-white text-xl font-bold">SERVICES</h1>
-        <h5 className="text-primary-white text-4xl">See how we can help you</h5>
+        <h1 className="text-primary-white text-xl font-bold">{t("title")}</h1>
+        <h5 className="text-primary-white text-4xl">{t("subtitle")}</h5>
         <div className="service__category-carousel">
           {categories?.map((item) => (
             <div key={item.id}>
@@ -101,7 +130,7 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
               768: { slidesPerView: 2, spaceBetween: 40 },
               880: { slidesPerView: 2, spaceBetween: 40 },
               1024: { slidesPerView: 3, spaceBetween: 30 },
-              1366: { slidesPerView: 4, slidesPerGroup: 30 },
+              1366: { slidesPerView: 4, spaceBetween: 30 },
             }}
             height={500}
           >
@@ -117,8 +146,8 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
                       key={service.id}
                     >
                       <ServiceCard
-                        title={service.title || "No Title"}
-                        description={service.description || "No Description"}
+                        title={service.title || t("noTitle")}
+                        description={service.description || t("noDescription")}
                       />
                     </motion.div>
                   </SwiperSlide>
@@ -133,7 +162,7 @@ const Services = ({ services, categories }: ServiceComponentProps) => {
                     className="flex items-center justify-center h-64"
                   >
                     <p className="text-primary-white text-lg">
-                      No services found for this category
+                      {t("noServices")}
                     </p>
                   </motion.div>
                 </SwiperSlide>

@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
+  const t = useTranslations("hero");
+
   const handleScrollToServices = () => {
     const servicesElement = document.getElementById("services");
     if (servicesElement) {
@@ -15,19 +18,15 @@ const Hero = () => {
       id="home"
       className="max-container flex xl:flex-row flex-col lg:justify-center sm:gap-0 md:gap-10 lg:gap-16 xl:gap-64 padding-x padding-y min-h-screen sm transition-all ease-in delay-150 item-center relative"
     >
-      <h1 className="text-6xl lg:text-[120px] leading-tight text-primary-white font-semibold uppercase self-center">
-        One <br /> Think <br />
-        Solution.
+      <h1 className="text-6xl lg:text-[120px] leading-tight text-primary-white font-semibold uppercase self-center whitespace-pre-line">
+        {t("title")}
       </h1>
       <div className="flex flex-col lg:mt-14 mt-0 self-center">
         <p className="text-justify text-primary-white text-xl mt-5 sm:">
-          Your partners in crafting unforgettable digital experiences that
-          captivate, engage, and inspire. With a passion for innovation and a
-          commitment to excellence, we specialize in creating immersive digital
-          solutions that leave a lasting impact and help you achieve your goals.
+          {t("description")}
         </p>
         <button className="hero__button" onClick={handleScrollToServices}>
-          EXPLORE MORE
+          {t("exploreButton")}
           <div className="">
             <svg
               width="19"
@@ -45,8 +44,8 @@ const Hero = () => {
         </button>
       </div>
       <div className="flex flex-col items-center bottom-0 left-0 w-full gap-3 absolute">
-        <p className="text-lg uppercase text-secondary-gray text-center font-light ">
-          Scroll <br /> to Explore
+        <p className="text-lg uppercase text-secondary-gray text-center font-light whitespace-pre-line">
+          {t("scrollText")}
         </p>
         <div className="container relative">
           <div className="square"></div>

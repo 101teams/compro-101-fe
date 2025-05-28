@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "title": "One\nThink\nSolution.",
+    "description": "Your partners in crafting unforgettable digital experiences that captivate, engage, and inspire. With a passion for innovation and a commitment to excellence, we specialize in creating immersive digital solutions that leave a lasting impact and help you achieve your goals.",
+    "exploreButton": "EXPLORE MORE",
+    "scrollText": "Scroll\nto Explore"
+  },
+  "services": {
+    "title": "SERVICES",
+    "subtitle": "See how we can help you",
+    "noServices": "No services found for this category",
+    "noTitle": "No Title",
+    "noDescription": "No Description"
+  },
+  "clients": {
+    "title": "Our Clients & Partners",
+    "subtitle": "We&apos;ve had the privilege of working with amazing companies and organizations. Here are some of our valued clients and partners."
+  },
+  "featured": {
+    "title": "OUR FEATURED WORKS"
+  },
+  "works": {
+    "title": "Our Works",
+    "subtitle": "Each client is unique and so is each project. While we have delivered many projects, we honor the confidentiality of our clients. Here is a glimpse of our portfolio.",
+    "button": "View Project Details",
+    "loading": "Loading project details...",
+    "notFound": {
+      "title": "Work Not Found",
+      "description": "The work you're looking for doesn't exist or has been removed."
+    }
+  },
+  "workDetails": {
+    "gallery": "Project Gallery",
+    "details": "Project Details",
+    "overview": "Project Overview",
+    "back": "Back to All Works",
+    "services": "Services",
+    "categories": "Categories",
+    "backToHome": "Back to Home",
+    "exploreMore": "Explore More Works",
+    "viewAll": "View all projects",
+    "loading": "Loading project details...",
+    "notFound": {
+      "title": "Work Not Found",
+      "description": "The work you're looking for doesn't exist or has been removed."
+    }
+  },
+  "navbar": {
+    "works": "Works",
+    "services": "Service",
+    "contact": "Contact"
+  },
+  "footer": {
+    "title": "Work with us",
+    "sitemaps": "Sitemaps",
+    "socials": "Socials",
+    "copyright": "Copyright © 2025 101-Team. All rights reserved."
+  }
+}

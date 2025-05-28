@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCreative, Navigation, Pagination } from "swiper/modules";
 import { WorkDisplayComponentProps } from "@/types";
+import { useTranslations } from "next-intl";
 
 const ITEMS_PER_PAGE = 3;
 const buttonVariants = {
@@ -20,6 +21,7 @@ const buttonVariants = {
   tap: { scale: 0.95, transition: { duration: 0.1 } },
 };
 const WorkDisplay = ({ categories, works }: WorkDisplayComponentProps) => {
+  const tr = useTranslations("works");
   const router = useRouter();
   // Get the first category from the categories array as the initial selected category
   const initialCategory = categories?.[0]?.title || "Android App Development";
@@ -100,7 +102,8 @@ const WorkDisplay = ({ categories, works }: WorkDisplayComponentProps) => {
   };
 
   const navigateToWork = (slug: string) => {
-    router.push(`/work/${slug}`);
+    const currentLocale = window.location.pathname.split("/")[1];
+    router.push(`/${currentLocale}/work/${slug}`);
   };
 
   return (
@@ -111,12 +114,10 @@ const WorkDisplay = ({ categories, works }: WorkDisplayComponentProps) => {
       <div className="mx-auto">
         <div className="mb-8 md:mb-12 lg:mb-16">
           <h1 className="text-primary-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-            Our Works
+            {tr("title")}
           </h1>
           <p className="text-gray-300 text-base md:text-lg max-w-3xl">
-            Each client is unique and so is each project. While we have
-            delivered many projects, we honor the confidentiality of our
-            clients. Here is a glimpse of our portfolio.
+            {tr("subtitle")}
           </p>
         </div>
         <div className="flex flex-col">
@@ -223,7 +224,7 @@ const WorkDisplay = ({ categories, works }: WorkDisplayComponentProps) => {
                               onClick={() => navigateToWork(work.slug)}
                               className="group flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm md:text-base"
                             >
-                              View Project Details
+                              {tr("button")}
                               <ArrowRight
                                 size={16}
                                 className="group-hover:translate-x-1 transition-transform"

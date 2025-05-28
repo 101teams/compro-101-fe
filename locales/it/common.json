@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "title": "Una\nSoluzione\nCompleta.",
+    "description": "I tuoi partner nella creazione di esperienze digitali indimenticabili che catturano, coinvolgono e ispirano. Con una passione per l'innovazione e un impegno per l'eccellenza, ci specializziamo nella creazione di soluzioni digitali immersive che lasciano un impatto duraturo e ti aiutano a raggiungere i tuoi obiettivi.",
+    "exploreButton": "ESPLORA DI PIÙ",
+    "scrollText": "Scorri\nper Esplorare"
+  },
+  "services": {
+    "title": "SERVIZI",
+    "subtitle": "Scopri come possiamo aiutarti",
+    "noServices": "Nessun servizio trovato per questa categoria",
+    "noTitle": "Nessun Titolo",
+    "noDescription": "Nessuna Descrizione"
+  },
+  "clients": {
+    "title": "I nostri clienti e partner",
+    "subtitle": "Abbiamo avuto il privilegio di lavorare con aziende e organizzazioni straordinarie. Ecco alcuni dei nostri stimati clienti e partner."
+  },
+  "featured": {
+    "title": "LE NOSTRE OPERE IN VETRINA"
+  },
+  "works": {
+    "title": "I nostri lavori",
+    "subtitle": "Ogni cliente è unico e così ogni progetto. Pur avendo realizzato molti progetti, rispettiamo la riservatezza dei nostri clienti. Ecco un assaggio del nostro portfolio.",
+    "button": "Vedere il Dettaglio",
+    "loading": "Caricamento dettagli del progetto...",
+    "notFound": {
+      "title": "Lavoro Non Trovato",
+      "description": "Il lavoro che stai cercando non esiste o è stato rimosso."
+    }
+  },
+  "workDetails": {
+    "gallery": "Galleria del Progetto",
+    "details": "Dettagli del Progetto",
+    "overview": "Panoramica del Progetto",
+    "back": "Torna a Tutte le opere",
+    "services": "Servizi",
+    "categories": "Categorie",
+    "backToHome": "Torna alla Home",
+    "exploreMore": "Esplora Altri Lavori",
+    "viewAll": "Vedi tutti i progetti",
+    "loading": "Caricamento dettagli del progetto...",
+    "notFound": {
+      "title": "Lavoro Non Trovato",
+      "description": "Il lavoro che stai cercando non esiste o è stato rimosso."
+    }
+  },
+  "navbar": {
+    "works": "Opere",
+    "services": "Servizio",
+    "contact": "Contatto"
+  },
+  "footer": {
+    "title": "Lavora con noi",
+    "sitemaps": "Sitemaps",
+    "socials": "Socials",
+    "copyright": "Copyright © 2025 101-Team. Tutti i diritti riservati."
+  }
+}

@@ -4,12 +4,14 @@ import Image from "next/image";
 import { BASE_API } from "@/constant/endpoint";
 import { ClientsLogoProps } from "@/types";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface ClientsProps {
   clients: ClientsLogoProps[];
 }
 
 const Clients = ({ clients }: ClientsProps) => {
+  const t = useTranslations("clients");
   const [visibleClients, setVisibleClients] = useState<
     (ClientsLogoProps | null)[]
   >(Array(8).fill(null));
@@ -63,11 +65,10 @@ const Clients = ({ clients }: ClientsProps) => {
       <div className="mx-auto">
         <div className="mb-8 md:mb-12 lg:mb-16">
           <h1 className="text-primary-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-            Our Clients & Partners
+            {t("title")}
           </h1>
           <p className="text-gray-300 text-base md:text-lg max-w-3xl">
-            We&apos;ve had the privilege of working with amazing companies and
-            organizations. Here are some of our valued clients and partners.
+            {t("subtitle")}
           </p>
         </div>
 
