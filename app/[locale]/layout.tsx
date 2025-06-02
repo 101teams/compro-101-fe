@@ -34,7 +34,7 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={currentLocale}>
+    <html lang={currentLocale} suppressHydrationWarning={true}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={currentLocale} messages={messages}>
           <Navbar />

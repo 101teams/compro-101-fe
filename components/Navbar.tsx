@@ -171,7 +171,7 @@ const Navbar = () => {
               onClick={handleNav}
               className="p-4 text-4xl hover:text-gray-500"
             >
-              <button onClick={() => handleScroll("home")}>{tr("home")}</button>
+              <button onClick={() => handleScroll("home")}></button>
             </li>
             <li
               onClick={handleNav}

@@ -13,8 +13,10 @@ import {
   Layout,
   ArrowRight,
   ArrowUpRight,
+  FileText,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { BlocksRenderer } from "@/components/BlocksRenderer";
 
 // Import Swiper styles (add these imports in your actual project)
 // import 'swiper/css';
@@ -28,6 +30,7 @@ interface WorkDetail {
   description: string;
   summary: string;
   slug: string;
+  article: string;
   image: Array<{
     id: number;
     url: string;
@@ -125,6 +128,7 @@ const WorkDetailPage = () => {
               description: workData.description,
               summary: workData.summary,
               slug: workData.slug,
+              article: workData.article,
               image:
                 workData.image?.map((img: any) => ({
                   id: img.id,
@@ -495,13 +499,37 @@ const WorkDetailPage = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Article Section */}
+        {work.article && (
+          <motion.div
+            variants={fadeInUp}
+            custom={7}
+            initial="initial"
+            animate="animate"
+            className="mt-16"
+          >
+            <div className="flex items-center gap-3 mb-8">
+              <FileText className="text-blue-400" size={28} />
+              <h2 className="text-2xl md:text-3xl font-bold text-white border-b border-blue-500 pb-2">
+                {tr("article")}
+              </h2>
+            </div>
+
+            <div className="bg-[rgba(255,255,255,0.02)] p-8 md:p-12 rounded-2xl backdrop-blur-sm shadow-2xl border border-[rgba(255,255,255,0.1)]">
+              <div className="prose prose-lg prose-invert max-w-none">
+                <BlocksRenderer content={work.article} />
+              </div>
+            </div>
+          </motion.div>
+        )}
       </div>
 
       {/* Explore More Works Section */}
       {relatedWorks.length > 0 && (
         <motion.div
           variants={fadeInUp}
-          custom={7}
+          custom={8}
           initial="initial"
           animate="animate"
           className="max-w-7xl mx-auto px-6 md:px-8 mt-16 mb-16"
