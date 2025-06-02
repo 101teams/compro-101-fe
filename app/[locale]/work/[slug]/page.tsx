@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { BlocksRenderer } from "@/components/BlocksRenderer";
+import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 // Import Swiper styles (add these imports in your actual project)
 // import 'swiper/css';
@@ -30,7 +31,7 @@ interface WorkDetail {
   description: string;
   summary: string;
   slug: string;
-  article: string;
+  article: BlocksContent;
   image: Array<{
     id: number;
     url: string;
@@ -128,7 +129,10 @@ const WorkDetailPage = () => {
               description: workData.description,
               summary: workData.summary,
               slug: workData.slug,
-              article: workData.article,
+              article:
+                typeof workData.article === "string"
+                  ? JSON.parse(workData.article)
+                  : workData.article || [],
               image:
                 workData.image?.map((img: any) => ({
                   id: img.id,
