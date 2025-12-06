@@ -26,7 +26,7 @@ const Footer = () => {
           <div className="flex justify-between flex-col lg:flex-row gap-5 text-center">
             <h1 className="text-primary-white text-4xl">{tr("title")}</h1>
             <h2 className="text-primary-white text-4xl font-bold">
-              info@101-team.it
+              info@101team.it
             </h2>
           </div>
           <hr className="bg-secondary-gray opacity-40 mt-20" />
