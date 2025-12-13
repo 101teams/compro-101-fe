@@ -73,7 +73,7 @@ export default function WorkGallery({ works }: WorkGalleryProps) {
                       className="object-cover transform group-hover:scale-110 transition-transform duration-700"
                       onError={(e) => {
                         // Fallback if image fails to load
-                        e.currentTarget.src = "/placeholder.jpg";
+                        e.currentTarget.src = "";
                       }}
                     />
                   ) : (

@@ -37,9 +37,7 @@ const Work = ({ work }: WorkProps) => {
 
   // Safely construct image URL with null checks
   const imageData = currentWork.image?.[0];
-  const imgUrl = imageData?.url
-    ? `${BASE_API}${imageData.url}`
-    : "/placeholder-image.jpg";
+  const imgUrl = imageData?.url ? `${BASE_API}${imageData.url}` : "";
 
   const goToPreviousWork = () => {
     if (activeIndex > 0) {

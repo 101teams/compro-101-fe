@@ -61,8 +61,6 @@ export default function Home() {
     ([url, locale]) => fetcher(url, locale)
   );
 
-  console.log(abouts);
-
   // Handle loading state
   if (!services || !categories || !works) {
     return (

@@ -46,16 +46,11 @@ const WorkDisplay = ({ categories, works }: WorkDisplayComponentProps) => {
   const filteredWorks = works.filter((work) => {
     // If no category is selected, show all works
     if (!selectedCategory) return true;
-
-    // Show all works if the selected category is "All"
     if (selectedCategory === "All") return true;
-
-    // Check if work has a category and if it matches the selected category
     const categoryTitle = work.category?.title;
     return categoryTitle === selectedCategory;
   });
 
-  // Get the works to display based on the current count
   const displayedWorks = filteredWorks.slice(0, displayedCount);
   const hasMoreWorks = displayedCount < filteredWorks.length;
   const hasMoreThanInitial = displayedCount > ITEMS_PER_PAGE;
