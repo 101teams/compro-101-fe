@@ -33,16 +33,12 @@ const fetcher = async (url: string, locale: string) => {
   }
 };
 
-// Remove these duplicate declarations - use the imported BASE_API
-// const BASE_API = process.env.NEXT_PUBLIC_API_URL;
-// const cleanBaseApi = BASE_API.replace(/\/$/, "");
-
 // Helper function to build image URL
 const getImageUrl = (imagePath: string) => {
   if (!imagePath) return "";
 
   // Remove trailing slash from BASE_API if it exists
-  const cleanBaseApi = BASE_API.replace(/\/$/, "");
+  const cleanBaseApi = (BASE_API || "").replace(/\/$/, "");
 
   // If imagePath already has a leading slash, we need to combine it properly
   if (imagePath.startsWith("/")) {
@@ -76,7 +72,7 @@ export default function AboutPage() {
       <div className="flex flex-col justify-center items-center min-h-screen">
         <p className="text-primary-white text-xl mb-4">Error loading data</p>
         <p className="text-primary-white text-sm opacity-70">
-          There's Something Wrong Please Try Again Later!
+          Theres Something Wrong Please Try Again Later!
         </p>
       </div>
     );

@@ -35,7 +35,7 @@ const fetcher = async (url: string, locale: string) => {
 
 const getImageUrl = (imagePath: string) => {
   if (!imagePath) return "";
-  const cleanBaseApi = BASE_API.replace(/\/$/, "");
+  const cleanBaseApi = (BASE_API || "").replace(/\/$/, "");
   if (imagePath.startsWith("/")) {
     return `${cleanBaseApi}${imagePath}`;
   }
@@ -110,7 +110,8 @@ export default function AboutPage() {
             {/* Left Column - Text */}
             <div className="space-y-8">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                {t("title")} <span className="text-blue-500">{t("teamName")}</span>
+                {t("title")}{" "}
+                <span className="text-blue-500">{t("teamName")}</span>
               </h1>
               <p className="text-xl text-gray-300 leading-relaxed">
                 {t("subtitle")}
@@ -201,7 +202,10 @@ export default function AboutPage() {
                 >
                   <Image
                     src={getImageUrl(image.url)}
-                    alt={image.alternativeText || `${t("galleryImageAlt")} ${index + 1}`}
+                    alt={
+                      image.alternativeText ||
+                      `${t("galleryImageAlt")} ${index + 1}`
+                    }
                     width={image.width || 500}
                     height={image.height || 300}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
@@ -226,7 +230,9 @@ export default function AboutPage() {
           <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-2xl p-8 md:p-12">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold">{t("ourWork")}</h2>
+                <h2 className="text-3xl md:text-4xl font-bold">
+                  {t("ourWork")}
+                </h2>
                 <p className="text-xl text-gray-300">
                   {work || t("workDescription")}
                 </p>
@@ -275,7 +281,9 @@ export default function AboutPage() {
       {/* Contact CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">{t("getInTouch")}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            {t("getInTouch")}
+          </h2>
           <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
             {contact || t("contactDescription")}
           </p>
