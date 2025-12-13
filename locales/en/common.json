@@ -48,7 +48,8 @@
   },
   "navbar": {
     "works": "Works",
-    "services": "Service",
+    "services": "Services",
+    "about": "About",
     "contact": "Contact"
   },
   "footer": {
@@ -56,5 +57,36 @@
     "sitemaps": "Sitemaps",
     "socials": "Socials",
     "copyright": "Copyright © 2025 101-Team. All rights reserved."
+  },
+  "about": {
+    "title": "About",
+    "teamName": "101 Team",
+    "subtitle": "We bring structure to complexity and transform ambitious ideas into dependable, fully integrated technology solutions.",
+    "ourStory": "Our Story",
+    "ourValues": "Our Values",
+    "ourGallery": "Our Gallery",
+    "ourWork": "Our Work",
+    "workDescription": "Discover our portfolio of innovative projects.",
+    "viewOurWork": "View Our Work",
+    "getInTouch": "Get In Touch",
+    "contactDescription": "Contact us to discuss your project.",
+    "contactUs": "Contact Us",
+    "ourServices": "Our Services",
+    "loading": "Loading...",
+    "errorTitle": "Error loading data",
+    "errorMessage": "There's Something Wrong Please Try Again Later!",
+    "noData": "No data found",
+    "aboutImageAlt": "About 101 Team",
+    "galleryImageAlt": "Gallery image",
+    "workImageAlt": "Our Work"
+  },
+  "workGallery": {
+    "title": "Our Work Gallery",
+    "subtitle": "Explore our diverse portfolio of innovative projects",
+    "learnMore": "Learn More",
+    "noImage": "No Image",
+    "projectsCompleted": "Projects Completed",
+    "clientSatisfaction": "Client Satisfaction",
+    "supportAvailable": "Support Available"
   }
 }

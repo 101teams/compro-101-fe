@@ -159,7 +159,7 @@ export const BlocksRenderer: React.FC<BlocksRendererProps> = ({ content }) => {
                     src={getImageUrl(imageBlock.image.url)}
                     alt={imageBlock.image.alternativeText || "Article image"}
                     fill
-                    className="object-fit"
+                    className="object-fitp"
                   />
                 </div>
                 {imageBlock.image.caption && (

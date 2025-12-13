@@ -17,11 +17,6 @@ import {
   FileText,
 } from "lucide-react";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/effect-fade";
-
 interface WorkDetail {
   id: number;
   title: string;

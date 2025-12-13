@@ -7,6 +7,7 @@ import Featured from "./Featured";
 import Work from "./Work";
 import Footer from "./Footer";
 import WorkDisplay from "./WorkDisplay";
+import WorkGallery from "./WorkGallery";
 
 export {
   Hero,
@@ -15,6 +16,7 @@ export {
   ServiceCard,
   ServiceCategory,
   Featured,
+  WorkGallery,
   Work,
   WorkDisplay,
   Footer,

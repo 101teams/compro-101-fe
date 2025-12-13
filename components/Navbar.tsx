@@ -16,16 +16,18 @@ const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  // Fix: Check for work detail page correctly with locale
+  // Check for work detail page correctly with locale
   const isWorkDetailPage = pathname?.includes("/work/");
+  // Check if we're on the about page
+  const isAboutPage = pathname?.includes("/about");
 
   const handleNav = () => {
     setNav(!nav);
   };
 
   const handleScroll = (id: string) => {
-    if (isWorkDetailPage) {
-      // Fix: Navigate to home page with locale, then handle scroll
+    if (isWorkDetailPage || isAboutPage) {
+      // Navigate to home page with locale, then handle scroll
       router.push(`/${locale}/#${id}`);
     } else {
       const element = document.getElementById(id);
@@ -39,6 +41,16 @@ const Navbar = () => {
     const currentPath = pathname.replace(`/${locale}`, "");
     router.push(`/${newLocale}${currentPath}`);
     setShowLocaleMenu(false);
+  };
+
+  // Simple About page navigation
+  const handleAboutNavigation = () => {
+    router.push(`/${locale}/about`);
+
+    // Close mobile menu if open
+    if (nav) {
+      setNav(false);
+    }
   };
 
   useEffect(() => {
@@ -79,7 +91,7 @@ const Navbar = () => {
       } border-none transition-all duration-300`}
     >
       <nav className="flex justify-between items-center max-container 2xl:padding-x">
-        {isWorkDetailPage ? (
+        {isWorkDetailPage || isAboutPage ? (
           <Link
             href={`/${locale}`}
             className="flex justify-center items-center"
@@ -113,6 +125,16 @@ const Navbar = () => {
               className="nav__links"
             >
               {tr("contact")}
+            </button>
+            <button
+              onClick={handleAboutNavigation}
+              className={`nav__links ${
+                isAboutPage
+                  ? "text-blue-500 font-semibold border-b-2 border-blue-500"
+                  : ""
+              }`}
+            >
+              {tr("about")}
             </button>
           </ul>
 
@@ -171,7 +193,7 @@ const Navbar = () => {
               onClick={handleNav}
               className="p-4 text-4xl hover:text-gray-500"
             >
-              <button onClick={() => handleScroll("home")}></button>
+              <button onClick={() => handleScroll("home")}>Home</button>
             </li>
             <li
               onClick={handleNav}
@@ -188,6 +210,13 @@ const Navbar = () => {
               <button onClick={() => handleScroll("services")}>
                 {tr("services")}
               </button>
+            </li>
+            {/* Mobile About Link */}
+            <li
+              onClick={handleNav}
+              className="p-4 text-4xl hover:text-gray-500"
+            >
+              <button onClick={handleAboutNavigation}>{tr("about")}</button>
             </li>
             <li
               onClick={handleNav}

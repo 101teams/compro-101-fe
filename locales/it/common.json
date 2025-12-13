@@ -47,8 +47,9 @@
     }
   },
   "navbar": {
-    "works": "Opere",
-    "services": "Servizio",
+    "works": "Realizzazioni",
+    "services": "Servizi",
+    "about": "Chi Siamo",
     "contact": "Contatto"
   },
   "footer": {
@@ -56,5 +57,36 @@
     "sitemaps": "Sitemaps",
     "socials": "Socials",
     "copyright": "Copyright © 2025 101-Team. Tutti i diritti riservati."
+  },
+  "about": {
+    "title": "Chi Siamo",
+    "teamName": "101 Team",
+    "subtitle": "Portiamo struttura alla complessità e trasformiamo idee ambiziose in soluzioni tecnologiche affidabili e completamente integrate.",
+    "ourStory": "La Nostra Storia",
+    "ourValues": "I Nostri Valori",
+    "ourGallery": "La Nostra Galleria",
+    "ourWork": "I Nostri Lavori",
+    "workDescription": "Scopri il nostro portfolio di progetti innovativi.",
+    "viewOurWork": "Vedi I Nostri Lavori",
+    "getInTouch": "Mettiti In Contatto",
+    "contactDescription": "Contattaci per discutere il tuo progetto.",
+    "contactUs": "Contattaci",
+    "ourServices": "I Nostri Servizi",
+    "loading": "Caricamento...",
+    "errorTitle": "Errore nel caricamento dei dati",
+    "errorMessage": "C'è qualcosa che non va, riprova più tardi!",
+    "noData": "Nessun dato trovato",
+    "aboutImageAlt": "Chi Siamo 101 Team",
+    "galleryImageAlt": "Immagine della galleria",
+    "workImageAlt": "I Nostri Lavori"
+  },
+  "workGallery": {
+    "title": "La Nostra Galleria di Lavori",
+    "subtitle": "Esplora il nostro portfolio diversificato di progetti innovativi",
+    "learnMore": "Scopri Di Più",
+    "noImage": "Nessuna Immagine",
+    "projectsCompleted": "Progetti Completati",
+    "clientSatisfaction": "Soddisfazione del Cliente",
+    "supportAvailable": "Supporto Disponibile"
   }
 }

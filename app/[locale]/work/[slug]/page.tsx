@@ -19,12 +19,6 @@ import { useTranslations } from "next-intl";
 import { BlocksRenderer } from "@/components/BlocksRenderer";
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
-// Import Swiper styles (add these imports in your actual project)
-// import 'swiper/css';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-// import 'swiper/css/effect-fade';
-
 interface WorkDetail {
   id: number;
   title: string;

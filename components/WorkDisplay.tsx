@@ -23,7 +23,6 @@ const buttonVariants = {
 const WorkDisplay = ({ categories, works }: WorkDisplayComponentProps) => {
   const tr = useTranslations("works");
   const router = useRouter();
-  // Get the first category from the categories array as the initial selected category
   const initialCategory = categories?.[0]?.title || "Android App Development";
   const [selectedCategory, setSelectedCategory] =
     useState<string>(initialCategory);

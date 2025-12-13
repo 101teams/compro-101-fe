@@ -1,5 +1,12 @@
+// app/page.tsx
 "use client";
-import { Featured, Hero, Services, WorkDisplay } from "@/components";
+import {
+  Featured,
+  Hero,
+  Services,
+  WorkDisplay,
+  WorkGallery,
+} from "@/components";
 import ENDPOINT from "@/constant/endpoint";
 import useSWR from "swr";
 import Clients from "@/components/Clients";
@@ -14,7 +21,6 @@ const fetcher = async (url: string, locale: string) => {
       },
     };
 
-    // Add locale parameter to the URL, ensuring we don't duplicate populate
     const separator = url.includes("?") ? "&" : "?";
     const urlWithLocale = `${url}${separator}locale=${locale}&populate=*`;
 
@@ -50,6 +56,12 @@ export default function Home() {
     [ENDPOINT.CLIENTS, locale],
     ([url, locale]) => fetcher(url, locale)
   );
+  const { data: abouts, error: aboutsError } = useSWR(
+    [ENDPOINT.ABOUT, locale],
+    ([url, locale]) => fetcher(url, locale)
+  );
+
+  console.log(abouts);
 
   // Handle loading state
   if (!services || !categories || !works) {
@@ -82,6 +94,7 @@ export default function Home() {
       </div>
       <Clients clients={clients} />
       <Featured works={works} />
+      <WorkGallery works={works} />
       <WorkDisplay works={works} categories={categories} />
     </main>
   );
