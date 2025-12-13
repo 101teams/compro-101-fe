@@ -1,6 +1,6 @@
 // app/about/page.tsx
 "use client";
-
+export const dynamic = "force-dynamic";
 import { useLocale, useTranslations } from "next-intl";
 import useSWR from "swr";
 import ENDPOINT, { BASE_API } from "@/constant/endpoint";
