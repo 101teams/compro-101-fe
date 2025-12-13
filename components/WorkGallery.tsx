@@ -29,7 +29,7 @@ export default function WorkGallery({ works }: WorkGalleryProps) {
 
   const getImageUrl = (imageData: any): string => {
     if (!imageData?.url) return "";
-    const cleanBaseApi = BASE_API.replace(/\/$/, "");
+    const cleanBaseApi = (BASE_API || "").replace(/\/$/, "");
     return `${cleanBaseApi}${imageData.url.startsWith("/") ? "" : "/"}${
       imageData.url
     }`;
