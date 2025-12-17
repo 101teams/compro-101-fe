@@ -40,6 +40,10 @@
     "exploreMore": "Esplora Altri Lavori",
     "viewAll": "Vedi tutti i progetti",
     "article": "Articolo Approfondito",
+    "mediaContent": "Contenuti multimediali",
+    "mediaImages": "{count, plural, one {# immagine} other {# immagini}}",
+    "mediaVideos": "{count, plural, one {# video} other {# video}}",
+    "videoProject": "Progetto video",
     "loading": "Caricamento dettagli del progetto...",
     "notFound": {
       "title": "Lavoro Non Trovato",
