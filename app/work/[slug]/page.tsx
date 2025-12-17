@@ -23,7 +23,7 @@ interface WorkDetail {
   description: string;
   summary: string;
   slug: string;
-  article?: any; // Strapi blocks content
+  article?: any;
   image: Array<{
     id: number;
     url: string;
@@ -77,7 +77,6 @@ const WorkDetailPage = () => {
   const [viewMode, setViewMode] = useState<"slider" | "grid">("slider");
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  // Animation variants
   const fadeInUp = {
     initial: { y: 30, opacity: 0 },
     animate: (i: number) => ({
@@ -103,20 +102,18 @@ const WorkDetailPage = () => {
         const data = await response.json();
 
         if (data.data && data.data.length > 0) {
-          // Find the work with matching slug
           const workData = data.data.find(
             (work: any) => work.slug === params.slug
           );
 
           if (workData) {
-            // Transform the data to match our interface
             const transformedWork: WorkDetail = {
               id: workData.id,
               title: workData.title,
               description: workData.description,
               summary: workData.summary,
               slug: workData.slug,
-              article: workData.article, // Add article field
+              article: workData.article,
               image:
                 workData.image?.map((img: any) => ({
                   id: img.id,
@@ -143,8 +140,6 @@ const WorkDetailPage = () => {
                   },
             };
             setWork(transformedWork);
-
-            // Find related works (same category or service)
             const related = data.data.filter((item: any) => {
               if (!item.service || !item.category) return false;
               return (
@@ -154,11 +149,9 @@ const WorkDetailPage = () => {
               );
             });
 
-            // Shuffle the related works array
             const shuffledRelated = related.sort(() => Math.random() - 0.5);
             const selectedRelated = shuffledRelated.slice(0, 3);
 
-            // If not enough related works, add some random ones
             if (selectedRelated.length < 3) {
               const randomWorks = data.data
                 .filter(
@@ -166,7 +159,7 @@ const WorkDetailPage = () => {
                     item.slug !== params.slug &&
                     !selectedRelated.some((r: WorkItem) => r.id === item.id)
                 )
-                .sort(() => Math.random() - 0.5) // Shuffle the remaining works
+                .sort(() => Math.random() - 0.5)
                 .slice(0, 3 - selectedRelated.length)
                 .map((item: any) => ({
                   id: item.id,
@@ -314,7 +307,6 @@ const WorkDetailPage = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 mt-8">
-        {/* Gallery Controls */}
         <motion.div
           variants={fadeInUp}
           custom={3}
@@ -347,7 +339,6 @@ const WorkDetailPage = () => {
           </div>
         </motion.div>
 
-        {/* Image Gallery */}
         {work.image && work.image.length > 0 && (
           <motion.div
             variants={fadeInUp}

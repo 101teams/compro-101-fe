@@ -56,6 +56,9 @@
     "title": "Work with us",
     "sitemaps": "Sitemaps",
     "socials": "Socials",
+    "cookiesLink": "Cookies & Privacy",
+    "cookiesLinkShort": "Cookies",
+    "cookiesLinkLabel": "Manage cookie preferences",
     "copyright": "Copyright © 2025 101-Team. All rights reserved."
   },
   "about": {
@@ -88,5 +91,59 @@
     "projectsCompleted": "Projects Completed",
     "clientSatisfaction": "Client Satisfaction",
     "supportAvailable": "Support Available"
+  },
+  "cookies": {
+    "title": "We use cookies",
+    "description": "We use essential cookies to make this site work, and optional cookies to improve your experience. You can choose to accept only essential cookies or allow all.",
+    "note": "Your choice will be stored in the cookie",
+    "manageCookies": "Manage cookies",
+    "buttons": {
+      "essential": "Essential only",
+      "acceptAll": "Accept all cookies",
+      "cancel": "Cancel"
+    }
+  },
+  "cookiesPage": {
+    "title": "Cookies & Privacy",
+    "intro": "This page explains which cookies we use on this website and what they are for.",
+    "whatWeStore": {
+      "title": "What cookies we set",
+      "description": "We only use a small number of cookies to make the website work and to remember your preferences.",
+      "items": {
+        "consent": "Stores your cookie consent choice (for example, essential only or all cookies).",
+        "locale": "Stores your preferred language (for example, English or Italian) so we can redirect you to the right version of the site.",
+        "prefs": "Stores lightweight interface preferences, such as view mode or whether you have dismissed certain messages."
+      }
+    },
+    "retention": {
+      "title": "How long we keep cookies",
+      "description": "We typically keep these cookies for 6–12 months. You can clear them at any time from your browser settings."
+    },
+    "noTracking": {
+      "title": "No authentication or tracking IDs",
+      "description": "We do not store authentication data, user accounts, or personal tracking IDs in cookies on this site."
+    },
+    "analytics": {
+      "title": "Analytics and third-party tools",
+      "description": "If we add analytics in the future (for example, Google Analytics or Meta Pixel), they will only run when your cookie consent is set to more than \"essential\"."
+    },
+    "manage": {
+      "title": "Managing your choices",
+      "description": "You can change your cookie preferences at any time using the cookie banner or the Cookies & Privacy link in the footer. You can also clear all cookies via your browser settings.",
+      "currentChoice": "Current choice",
+      "success": "Your cookie preferences have been updated.",
+      "choices": {
+        "none": "No preference set",
+        "essential": "Essential only",
+        "analytics": "Analytics",
+        "marketing": "All cookies"
+      },
+      "buttons": {
+        "essential": "Essential only",
+        "acceptAll": "Accept all cookies",
+        "clearAll": "Clear all cookies"
+      }
+    },
+    "back": "Back to home"
   }
 }

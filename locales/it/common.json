@@ -56,6 +56,9 @@
     "title": "Lavora con noi",
     "sitemaps": "Sitemaps",
     "socials": "Socials",
+    "cookiesLink": "Cookie & Privacy",
+    "cookiesLinkShort": "Cookie",
+    "cookiesLinkLabel": "Gestisci le preferenze sui cookie",
     "copyright": "Copyright © 2025 101-Team. Tutti i diritti riservati."
   },
   "about": {
@@ -88,5 +91,59 @@
     "projectsCompleted": "Progetti Completati",
     "clientSatisfaction": "Soddisfazione del Cliente",
     "supportAvailable": "Supporto Disponibile"
+  },
+  "cookies": {
+    "title": "Utilizziamo i cookie",
+    "description": "Utilizziamo cookie essenziali per far funzionare questo sito e cookie opzionali per migliorare la tua esperienza. Puoi scegliere di accettare solo i cookie essenziali o consentire tutti i cookie.",
+    "note": "La tua scelta verrà salvata nel cookie",
+    "manageCookies": "Gestisci cookie",
+    "buttons": {
+      "essential": "Solo essenziali",
+      "acceptAll": "Accetta tutti i cookie",
+      "cancel": "Annulla"
+    }
+  },
+  "cookiesPage": {
+    "title": "Cookie & Privacy",
+    "intro": "Questa pagina spiega quali cookie utilizziamo su questo sito web e a cosa servono.",
+    "whatWeStore": {
+      "title": "Quali cookie impostiamo",
+      "description": "Utilizziamo solo un numero limitato di cookie per far funzionare il sito e per ricordare le tue preferenze.",
+      "items": {
+        "consent": "Memorizza la tua scelta sui cookie (ad esempio, solo essenziali o tutti i cookie).",
+        "locale": "Memorizza la tua lingua preferita (ad esempio, Italiano o Inglese) così possiamo reindirizzarti alla versione corretta del sito.",
+        "prefs": "Memorizza preferenze leggere dell'interfaccia, come la modalità di visualizzazione o se hai chiuso alcuni messaggi."
+      }
+    },
+    "retention": {
+      "title": "Per quanto tempo conserviamo i cookie",
+      "description": "Di solito conserviamo questi cookie per 6–12 mesi. Puoi eliminarli in qualsiasi momento dalle impostazioni del tuo browser."
+    },
+    "noTracking": {
+      "title": "Nessuna autenticazione o ID di tracciamento",
+      "description": "Non memorizziamo dati di autenticazione, account utente o ID di tracciamento personale nei cookie su questo sito."
+    },
+    "analytics": {
+      "title": "Analitiche e strumenti di terze parti",
+      "description": "Se in futuro aggiungeremo strumenti di analisi (ad esempio Google Analytics o Meta Pixel), verranno eseguiti solo quando il consenso ai cookie è impostato su un livello superiore a \"solo essenziali\"."
+    },
+    "manage": {
+      "title": "Gestire le tue scelte",
+      "description": "Puoi modificare le tue preferenze sui cookie in qualsiasi momento tramite il banner dei cookie o il link Cookie & Privacy nel footer. Puoi anche eliminare tutti i cookie tramite le impostazioni del browser.",
+      "currentChoice": "Scelta attuale",
+      "success": "Le tue preferenze sui cookie sono state aggiornate.",
+      "choices": {
+        "none": "Nessuna preferenza impostata",
+        "essential": "Solo essenziali",
+        "analytics": "Analitiche",
+        "marketing": "Tutti i cookie"
+      },
+      "buttons": {
+        "essential": "Solo essenziali",
+        "acceptAll": "Accetta tutti i cookie",
+        "clearAll": "Elimina tutti i cookie"
+      }
+    },
+    "back": "Torna alla home"
   }
 }

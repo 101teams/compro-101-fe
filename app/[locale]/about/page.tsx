@@ -91,16 +91,6 @@ export default function AboutPage() {
     workcta_thumbnail,
   } = aboutData;
 
-  // Debug logging
-  console.log("About data:", aboutData);
-  console.log("Locale:", locale);
-  console.log("BASE_API:", BASE_API);
-
-  if (thumbnail) {
-    console.log("Thumbnail URL from data:", thumbnail.url);
-    console.log("Built thumbnail URL:", getImageUrl(thumbnail.url));
-  }
-
   return (
     <main className="relative overflow-hidden !scroll-smooth min-h-screen bg-black text-white">
       {/* Hero Section */}

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, Globe } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import { setBrowserCookie, COOKIE_NAMES } from "@/lib/cookies";
 
 const Navbar = () => {
   const tr = useTranslations("navbar");
@@ -39,6 +40,8 @@ const Navbar = () => {
 
   const handleLocaleChange = (newLocale: string) => {
     const currentPath = pathname.replace(`/${locale}`, "");
+    // Persist locale preference in a cookie
+    setBrowserCookie(COOKIE_NAMES.locale, newLocale, { days: 365 });
     router.push(`/${newLocale}${currentPath}`);
     setShowLocaleMenu(false);
   };

@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { locales, defaultLocale } from "@/i18n/config";
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, CookieBanner } from "@/components";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -40,6 +40,7 @@ export default async function LocaleLayout({
           <Navbar />
           {children}
           <Footer />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

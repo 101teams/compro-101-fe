@@ -1,13 +1,13 @@
 "use client";
 import { footerLinks, sitemapsLinks } from "@/constant";
-import { Cpu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import React from "react";
+import { useLocale, useTranslations } from "next-intl";
 
 const Footer = () => {
   const tr = useTranslations("footer");
+  const locale = useLocale();
   const handleScroll = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -74,9 +74,15 @@ const Footer = () => {
               101 DEV TEAM
             </h1>
           </div>
-          <p className="self-end text-primary-white lg:-mt-20 ml-20 text-xs lg:text-base">
-            {tr("copyright")}
-          </p>
+          <div className="self-end flex flex-col items-end gap-1 lg:-mt-20 ml-20 text-xs lg:text-sm text-primary-white">
+            <p>{tr("copyright")}</p>
+            <Link
+              href={`/${locale}/cookies`}
+              className="text-[11px] underline underline-offset-2 opacity-80 hover:opacity-100"
+            >
+              {tr("cookiesLink")}
+            </Link>
+          </div>
         </div>
       </section>
     </>

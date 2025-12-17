@@ -6,7 +6,6 @@ import { useTranslations } from "next-intl";
 const Featured = ({ works }: { works: WorksDataProps[] }) => {
   const t = useTranslations("featured");
   const featuredWork = works;
-  console.log(`WORKS ${works}`);
 
   return (
     <div className="min-h-screen relative z-0 no-scrollbar" id="featured">

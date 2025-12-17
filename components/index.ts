@@ -8,6 +8,7 @@ import Work from "./Work";
 import Footer from "./Footer";
 import WorkDisplay from "./WorkDisplay";
 import WorkGallery from "./WorkGallery";
+import CookieBanner from "./CookieBanner";
 
 export {
   Hero,
@@ -20,4 +21,5 @@ export {
   Work,
   WorkDisplay,
   Footer,
+  CookieBanner,
 };
